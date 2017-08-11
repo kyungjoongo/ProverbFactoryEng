@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">명언팩토리</string>
-    <string name="title_home">명언모음</string>
-    <string name="title_dashboard">한글랜덤명언</string>
-    <string name="title_notifications">영어랜덤명언</string>
+    <string name="app_name">Proverb Factory</string>
+    <string name="proverb_list">Proverb Collection</string>
+    <string name="eng_random">English Random Proverb</string>
+    <string name="kor_random">Hangul Random Proverb</string>
 
 
     <string name="usage">Usage</string>
     <string name="about_desc">
-        명언팩토리 v0.1
+        Proverb Factory v0.1
 
         Made by kyungjoon.go
     </string>

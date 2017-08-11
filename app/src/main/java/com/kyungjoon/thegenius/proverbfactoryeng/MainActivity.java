@@ -131,16 +131,15 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
 
 
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.proverb_list:
                     loadActivity();
                     return true;
 
-                case R.id.navigation_dashboard:
-                    getOneProverbsViaHttpRequest("http://35.194.71.159:8080/rest/getOneJson");
-                    return true;
-                case R.id.navigation_notifications:
-
+                case R.id.eng_random:
                     getOneProverbsViaHttpRequest("http://35.194.71.159:8080/rest/getOneJsonEng");
+                    return true;
+                case R.id.kor_random:
+                    getOneProverbsViaHttpRequest("http://35.194.71.159:8080/rest/getOneJson");
                     return true;
             }
             return false;
