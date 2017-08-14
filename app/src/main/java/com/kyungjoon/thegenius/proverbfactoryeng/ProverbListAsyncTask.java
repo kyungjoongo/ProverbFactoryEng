@@ -2,7 +2,6 @@ package com.kyungjoon.thegenius.proverbfactoryeng;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -23,9 +22,9 @@ import java.util.Map;
 
 public class ProverbListAsyncTask extends AsyncTask<String, Void, String> {
 
-    ArrayAdapter<String> mAdapter;
+    CustomAdaptor mAdapter;
 
-    public ProverbListAsyncTask(MainActivity androidAsyncTaskActivity, ArrayAdapter<String> pAdapter) {
+    public ProverbListAsyncTask(MainActivity androidAsyncTaskActivity, CustomAdaptor pAdapter) {
 
         mAdapter = pAdapter;
     }

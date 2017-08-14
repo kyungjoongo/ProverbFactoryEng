@@ -22,10 +22,11 @@ import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity implements AbsListView.OnScrollListener {
     private AdView mAdView;
-    private ArrayAdapter<String> mAdapter;
+   // private ArrayAdapter<String> mAdapter;
     private AsyncTask<String, Void, String> mTask;
     private ListView mListView;
     private View mFooter;
+    CustomAdaptor mCustomAdaptor;
     TextView mHiddenValue;
     int page = 1;
 
@@ -56,7 +57,9 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
 
         mListView = (ListView) findViewById(R.id.listview02);
         // 간단한 리스트를 표시할 Adapter 생성
-        mAdapter = new ArrayAdapter<String>(this, R.layout.simple_list_item);
+       // mAdapter = new ArrayAdapter<String>(this, R.layout.item_one_row);
+
+        mCustomAdaptor =new CustomAdaptor(this, R.layout.item_one_row);
 
 
         // 읽기 중의 푸터(바닥글)을 생성
@@ -64,13 +67,13 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
         // ListView에 푸터를 설정
         mListView.addFooterView(mFooter);
         // 어댑터를 설정
-        mListView.setAdapter(mAdapter);
+        mListView.setAdapter(mCustomAdaptor);
         // 스크롤리스너를 설정
         mListView.setOnScrollListener(this);
 
         /*mTask = new ProverbListAsyncTask(this, mAdapter).execute("http://35.194.71.159:8080/rest/getListForPaging/1");*/
 
-        mTask = new ProverbListAsyncTask(this, mAdapter).execute("http://35.194.71.159:8080/rest/getListForPagingEng/1");
+        mTask = new ProverbListAsyncTask(this, mCustomAdaptor).execute("http://35.194.71.159:8080/rest/getListForPagingEng/1");
 
         PreferenceUtils.savePreferences(MainActivity.this, 1);
 
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
         String currentPage = PreferenceUtils.getPreferences(MainActivity.this);
         int nextPage = Integer.parseInt(currentPage) + 1;
         /*mTask = new ProverbListAsyncTask(this, mAdapter).execute("http://35.194.71.159:8080/rest/getListForPaging/" + Integer.toString(nextPage));*/
-        mTask = new ProverbListAsyncTask(this, mAdapter).execute("http://35.194.71.159:8080/rest/getListForPagingEng/" + Integer.toString(nextPage));
+        mTask = new ProverbListAsyncTask(this, mCustomAdaptor).execute("http://35.194.71.159:8080/rest/getListForPagingEng/" + Integer.toString(nextPage));
 
         PreferenceUtils.savePreferences(MainActivity.this, nextPage);
 
